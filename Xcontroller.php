@@ -7,6 +7,7 @@ use HuTong\Ylaravel\Filesystem\Manager as Filesystem;
 use HuTong\Ylaravel\Redis\Manager as Redis;
 use HuTong\Ylaravel\Session\Manager as Session;
 use HuTong\Ylaravel\Database\Manager as Database;
+use HuTong\Xcore\Pagination as Pagination;
 /**
  * 过滤一些用户输入的信息
  */
@@ -249,5 +250,12 @@ class Xcontroller extends \Yaf\Controller_Abstract
 			\Yaf\Registry::set('db', $this->db);
 		}
 		return $this->db;
+	}
+
+	public function getPagination($page_total = 1, $page_size = 1, $page_current = 1, $page_url, $show_pages = '')
+	{
+		$page = new Pagination();
+
+		return $page->page_show($page_total, $page_size, $page_current, $page_url, $show_pages);
 	}
 }
