@@ -7,8 +7,9 @@ application.library = APPLICATION_PATH  "/application/library"
 application.library.namespace = "Local"
 application.modules = "Index,Admin"
 application.view.ext = "html"
-application.view.path = APPLICATION_PATH  "/application/views"
-application.view.layout = 1
+;layout配置
+layout.open = 1
+layout.path = APPLICATION_PATH  "/application/layout"
 
 ;数据库配置信息
 database.driver     = "mysql"

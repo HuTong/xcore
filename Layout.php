@@ -11,7 +11,7 @@ class Layout extends \Yaf\Plugin_Abstract {
 
     public function __construct($layoutDir = null)
     {
-        $this->_layoutDir = ($layoutDir) ? $layoutDir : \Yaf\Registry::get('config')->application->view->path;
+        $this->_layoutDir = ($layoutDir) ? $layoutDir : \Yaf\Registry::get('config')->layout->path;
     }
 
     public function  __set($name, $value)
