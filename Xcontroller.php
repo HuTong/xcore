@@ -28,8 +28,6 @@ class Xcontroller extends \Yaf\Controller_Abstract
 			\Yaf\Dispatcher::getInstance()->autoRender(FALSE);
 		}
 
-		$this->setViewPath(\Yaf\Registry::get('config')->application->view->path);
-
 		if($this->layout)
 		{
 			$this->setLayout($this->layout);
