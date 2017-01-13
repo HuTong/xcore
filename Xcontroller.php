@@ -14,12 +14,31 @@ use HuTong\Xcore\Pagination as Pagination;
 class Xcontroller extends \Yaf\Controller_Abstract
 {
 	protected $Container;
+	protected $layout;
 
 	public function init()
 	{
 		$this->getContainer();
 
 		$this->initSession();
+
+		//do not call render for ajax request
+		if($this->isJson())
+		{
+			\Yaf\Dispatcher::getInstance()->autoRender(FALSE);
+		}
+
+		$this->setViewPath(\Yaf\Registry::get('config')->application->view->path);
+
+		if($this->layout)
+		{
+			$this->setLayout($this->layout);
+		}
+	}
+
+	public function setLayout($layout)
+	{
+		$this->getResPonse()->layout = $layout;
 	}
 
 	protected function getContainer()
