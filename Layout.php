@@ -30,7 +30,7 @@ class Layout extends \Yaf\Plugin_Abstract {
         $layout->assign('layout', $this->_layoutVars);
 
         /* set the response to use the wrapped version of the content */
-        $response->setBody($layout->render(isset($response->layout) ? $response->layout : 'layout/layout.html', array()));
+        $response->setBody($layout->render(isset($response->layout) ? $response->layout : 'layout.html', array()));
 	}
 
 	public function preDispatch(\Yaf\Request_Abstract $request, \Yaf\Response_Abstract $response)
