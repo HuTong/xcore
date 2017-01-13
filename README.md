@@ -80,3 +80,12 @@ session.domain = "frame.hutong.com"
 session.secure = "false"
 session.http_only = "true"
 [product : common]
+
+
+public function _initPlugin(Yaf\Dispatcher $dispatcher) {
+		//注册一个插件
+		if(Yaf\Registry::get('config')->layout->open)
+        {
+            $dispatcher->registerPlugin(new HuTong\Xcore\Layout());
+        }
+	}
