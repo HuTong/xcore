@@ -5,17 +5,17 @@ namespace HuTong\Xcore;
 */
 class Validation
 {
-	public function isMobile($val)
+	public static function isMobile($val)
 	{
 		return preg_match('/^1[34578]\d{9}$/', $val);
 	}
 
-	public function isEmail($val)
+	public static function isEmail($val)
 	{
 		return (bool)filter_var($val, FILTER_VALIDATE_EMAIL);
 	}
 
-	public function isIp($val, $type = 0)
+	public static function isIp($val, $type = 0)
 	{
 		switch ($type) {
 			case 1:
@@ -33,7 +33,7 @@ class Validation
 	}
 
 	// 必须添加http
-	public function isUrl($val, $type = 0)
+	public static function isUrl($val, $type = 0)
 	{
 		switch ($type) {
 			case 0:
@@ -59,12 +59,12 @@ class Validation
 		}
 	}
 
-	public function isFloat($val)
+	public static function isFloat($val)
 	{
 		return filter_var($val, FILTER_VALIDATE_FLOAT) === false ? false : true;
 	}
 
-	public function isInt($val, $min = null, $max = null)
+	public static function isInt($val, $min = null, $max = null)
 	{
 		if(is_null($min) && is_null($max)){
 			return filter_var($val, FILTER_VALIDATE_INT) === false ? false : true;
@@ -74,39 +74,39 @@ class Validation
 		}
 	}
 
-	public function isBoolean($val)
+	public static function isBoolean($val)
 	{
 		return filter_var($val, FILTER_VALIDATE_BOOLEAN) === false ? false : true;
 	}
 
-	public function isLower($val)
+	public static function isLower($val)
 	{
 		return preg_match('/^[a-z]+$/', $val) ? true : false;
 	}
 
-	public function isChinese($val)
+	public static function isChinese($val)
 	{
 		return preg_match("/^[\x{4e00}-\x{9fa5}a-zA-Z_]+$/u", $val) ? true : false;
 	}
 
-	public function isUpper($val)
+	public static static function isUpper($val)
 	{
 		return preg_match("/^[A-Z]+$/", $val) ? true : false;
 	}
 
 	//是否是只有26个大小写英文字符的字符串
-	public function isAlpha($val)
+	public static function isAlpha($val)
 	{
 		return preg_match("/^[a-zA-Z]+$/", $val) ? true : false;
 	}
 
 	//是否只含有26个大小写英文字符和数字字符的字符串
-	public function isAlnum($val)
+	public static function isAlnum($val)
 	{
 		return preg_match("/^[a-zA-Z\d]+$/", $val);
 	}
 
-	public function isPasswd($val, $len = 6) {
+	public static function isPasswd($val, $len = 6) {
 		return preg_match('/^[.a-z_0-9-!@#$%\^&*()]{' . $len . ',32}$/ui', $val) ? true : false;
 	}
 
